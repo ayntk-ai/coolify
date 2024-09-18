@@ -17,6 +17,7 @@ class StartProxySeeder extends Seeder
             // This starts the proxy but it does not wait for it to finish starting (it is instat though) 
             // If we want to wait for the proxy we would have to add something like this: StartProxy::run($server, async: false, force: true);
             // Also if the proxy is running it will remove it and start a new one.
+            // WHEN RUNNING SPIN UP THE SEEDERS SHOULD ALSO BE RUN??
             $server->proxy->force_stop = false;
             $server->save();
             $activity = StartProxy::run($server, force: true);
